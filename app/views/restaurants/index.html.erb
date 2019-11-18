@@ -1,0 +1,24 @@
+<h2>List of available restaurants</h2>
+
+<ul>
+  <% @restaurants.each do |id, resto| %>
+    <li>Name: <%= resto[:name] %>, <%= resto[:address] %>, CATEGORY: <%= resto[:category] %></li>
+  <% end %>
+</ul>
+
+<form action="/restaurants" method="get">
+  <input type="text" name="food_type" placeholder="What kind of food?">
+  <input type="submit">
+</form>
+
+<p>----------------------------------</p>
+
+<form action="/restaurants" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="address" placeholder="Address">
+  <input type="submit">
+</form>
+
+<p>Now is <%= Time.now %></p>
+
